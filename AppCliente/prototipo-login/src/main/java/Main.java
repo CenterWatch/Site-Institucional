@@ -7,9 +7,7 @@ public class Main {
 
         Usuario usuario = new Usuario();
 
-        usuario.adicionarUsuario("adm", "root");
-        usuario.adicionarUsuario("root", "1234");
-        usuario.adicionarUsuario("user", "pass");
+        usuario.cadastrar("root", "password");
 
         Scanner leitor = new Scanner(System.in);
         Scanner leitor2 = new Scanner(System.in);
@@ -21,15 +19,31 @@ public class Main {
 
         Integer opt = leitor.nextInt();
 
+        String user, pwd;
+
         switch (opt) {
             case 1:
+                System.out.printf("Usuário: ");
+                user = leitor2.next();
+                System.out.printf("Senha: ");
+                pwd = leitor2.next();
+
+                if (usuario.verificarLogin(user, pwd)) {
+                    usuario.entrar(user, pwd);
+                }
                 break;
             case 2:
+                System.out.printf("Usuário: ");
+                user = leitor2.next();
+                System.out.printf("Senha: ");
+                pwd = leitor2.next();
+
+                usuario.cadastrar(user, pwd);
                 break;
             case 3:
                 break;
         }
 
-        System.out.println(usuario.verificarLogin(leitor2.next(), leitor2.next()));
+        System.out.println();
     }
 }
