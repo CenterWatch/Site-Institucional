@@ -86,18 +86,15 @@ h1{
     font-family: 'Poppins', sans-serif;
     font-family: 'Young Serif', serif; 
     letter-spacing: 7px;
-    color: beige;
+    color: rgb(255, 255, 255);
 }
 
 .conteudo h4{
     margin-top: 5px;
     margin-bottom: 50px;
     font-size: 24px;
-<<<<<<< HEAD
     color: beige;
-=======
     color: #ffffff;
->>>>>>> 59601fa6cbf7bb47d32bfadd17a4dc62c126ff3e
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
     font-family: 'Young Serif', serif; 
@@ -128,10 +125,10 @@ h1{
     z-index: -1; /* Para o video ficar atrás dos outros elementos */
 }
 
-.icon img{
-    color: #fff;
-    font-weight: 800;
-    margin-top: 20px;
+.icon a{
+    /* color: #fff;
+    font-weight: 800; */
+    margin-top: 25px;
 }
 
 /* SOBRE NOS */
@@ -169,7 +166,7 @@ h1{
 
 .col1 span{
     font-family:'Zen Kaku Gothic New', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 2.5px;
 }
 

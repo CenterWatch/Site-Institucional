@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #222222;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../imgs/cadastro/papel-de-parede.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo{
+    width: 30vw;
+    height: 100vh;
+}
+.container-cadastro{
+    width: 60vw;
+    height: 100vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5%;
+}
+
+.container-cadastro .box{
+    width: 60%;
+    height: 75%;
+    background-color: #222222c7;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box h1{
+    color: #52c3e3;
+    font-size: 52px;
+    font-family: "Agbalumo", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 45%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.inputs div{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    width: 100%;
+    align-items: center;
+}
+
+.inputs div .input-cadastro{
+    width: 70%;
+    height: 45px;
+    background-color: transparent;
+    border: solid #52c3e3 2px;
+    outline: none;
+    padding: 5px;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.inputs div label{
+    font-size: 24px;
+    margin-right: 60%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+}
+
+.btn-cadastro{
+    width: 70%;
+    height: 45px;
+    background-color: #52c4e39f;
+    border: none;
+    padding: 5px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-cadastro:hover{
+    transform: scale(1.1);
+}
+
+.span-entrar{
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+}
+
+.span-entrar a{
+    color: #fff;
+    text-decoration: none;
+    border-bottom: solid 1px #fff;
+}
