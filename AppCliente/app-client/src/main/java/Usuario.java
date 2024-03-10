@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Usuario {
     Scanner leitor = new Scanner(System.in);
     List<List> usuariosCadastrados = new ArrayList<>();
-    Main main =  new Main();
 
     Boolean verificarUsuarioExiste(String user) {
         List<String> usuarioAtual;
@@ -72,13 +71,26 @@ public class Usuario {
         Boolean logado = true;
 
         List<String> usuario = usuariosCadastrados.get(index);
+
+        /*
+        * Usuário, por index:
+        * 0 - Email
+        * 1 - Senha
+        * 2 - Nome
+        * 3 - Sobrenome
+        * 4 - Telefone
+        * 5 - CPF
+        * 6 - Cargo
+        * */
+
         String nome = usuario.get(2);
         String cargo = usuario.get(6);
 
         do {
-            System.out.println("Olá, %s\n".formatted(nome));
+            // O usuário está logado
+            System.out.println("Olá, %s".formatted(nome));
 
-            String opcoes = "0. Sair\n1. Ver perfil";
+            String opcoes = "\n1. Ver perfil";
 
             if (cargo.equals("Supervisor"))
                 opcoes += "\n2. Ver usuários cadastrados";
@@ -86,11 +98,15 @@ public class Usuario {
             if (cargo.equals("Gerente"))
                 opcoes += "\n2. Ver usuários cadastrados\n3. Cadastrar usuários";
 
+            opcoes += "\n0. Sair\n";
+
+            // Supervisores podem somente ver usuários que cadastrou, enquanto Gerentes podem cadastrar novos usuários.
+
             System.out.println(opcoes);
-            System.out.println();
 
             switch (leitor.nextInt()) {
                 case 0:
+                    // Fez logout
                     logado = false;
                     break;
                 case 1:
@@ -109,30 +125,31 @@ public class Usuario {
 
         } while (logado);
 
+        // Ao fazer logout, o usuário é redirecionado para o inicio
         Main.inicio();
     }
 
     void cadastrarUsuario() {
 
-        System.out.printf("E-mail: ");
+        System.out.print("E-mail: ");
         String user = leitor.next();
 
-        System.out.printf("Senha: ");
+        System.out.print("Senha: ");
         String pwd = leitor.next();
 
-        System.out.printf("Nome: ");
+        System.out.print("Nome: ");
         String nome = leitor.next();
 
-        System.out.printf("Sobrenome: ");
+        System.out.print("Sobrenome: ");
         String sobrenome = leitor.next();
 
-        System.out.printf("Telefone: ");
+        System.out.print("Telefone: ");
         String tel = leitor.next();
 
-        System.out.printf("CPF: ");
+        System.out.print("CPF: ");
         String cpf = leitor.next();
 
-        System.out.printf("Cargo: ");
+        System.out.print("Cargo: ");
         String cargo = leitor.next();
 
         if (verificarUsuarioExiste(user)) {
@@ -158,19 +175,10 @@ public class Usuario {
     }
 
     Boolean entrar() {
-        List<String> cadastroAtual = new ArrayList<>();
-        cadastroAtual.add("joca@gmail.com");
-        cadastroAtual.add("password");
-        cadastroAtual.add("Joca");
-        cadastroAtual.add("Almeida");
-        cadastroAtual.add("11999888777");
-        cadastroAtual.add("12312312312");
-        cadastroAtual.add("Gerente");
-        usuariosCadastrados.add(cadastroAtual);
 
-        System.out.printf("E-mail: ");
+        System.out.print("E-mail: ");
         String user = leitor.next();
-        System.out.printf("Senha: ");
+        System.out.print("Senha: ");
         String pwd = leitor.next();
 
         for (int i = 0; i < usuariosCadastrados.size(); i++) {
@@ -191,40 +199,50 @@ public class Usuario {
     void exibirUsuarios() {
         System.out.println("--------------------------");
         System.out.println("USUÁRIOS");
+
         for(int i =0; i < usuariosCadastrados.size(); i++) {
-            System.out.println(String.format("""
+
+            List<String> usuario = usuariosCadastrados.get(i);
+
+            System.out.println("""
                     --------------------------
                     Nome: %s
                     Sobrenome: %s
                     Telefone: %s
                     Email: %s
                     CPF: %s
-                    Cargo: %s""",usuariosCadastrados.get(i).get(2),
-                    usuariosCadastrados.get(i).get(3),
-                    usuariosCadastrados.get(i).get(4),
-                    usuariosCadastrados.get(i).get(0),
-                    usuariosCadastrados.get(i).get(5),
-                    usuariosCadastrados.get(i).get(6)
-            ));
+                    Cargo: %s""".formatted(
+                        usuario.get(2),
+                        usuario.get(3),
+                        usuario.get(4),
+                        usuario.get(0),
+                        usuario.get(5),
+                        usuario.get(6)
+                    )
+            );
         }
         System.out.println("--------------------------\n");
     }
 
     void exibirPerfil(Integer index) {
-            System.out.println(String.format("""
-                    \nNome: %s
-                    Sobrenome: %s
-                    Telefone: %s
-                    Email: %s
-                    CPF: %s
-                    Cargo: %s
-                    """,usuariosCadastrados.get(index).get(2),
-                    usuariosCadastrados.get(index).get(3),
-                    usuariosCadastrados.get(index).get(4),
-                    usuariosCadastrados.get(index).get(0),
-                    usuariosCadastrados.get(index).get(5),
-                    usuariosCadastrados.get(index).get(6)
-            ));
+        List<String> usuario = usuariosCadastrados.get(index);
+
+        System.out.println("""
+                \nNome: %s
+                Sobrenome: %s
+                Telefone: %s
+                Email: %s
+                CPF: %s
+                Cargo: %s
+                """.formatted(
+                    usuario.get(2),
+                    usuario.get(3),
+                    usuario.get(4),
+                    usuario.get(0),
+                    usuario.get(5),
+                    usuario.get(6)
+                )
+        );
     }
 
 }

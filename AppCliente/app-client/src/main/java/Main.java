@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println("1. Entrar");
         System.out.println("2. Cadastrar");
-        System.out.println("3. Sair");
+        System.out.println("0. Sair");
         System.out.println();
 
         navegacao.menu(leitor.nextInt());
