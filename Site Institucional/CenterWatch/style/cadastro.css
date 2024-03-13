@@ -39,6 +39,15 @@ body{
     align-items: center;
     justify-content: center;
 }
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+.primeiro-h1{
+    margin-bottom: 10%;
+}
 
 .box h1{
     color: #52c3e3;
@@ -64,6 +73,10 @@ body{
     align-items: center;
 }
 
+.primeira-label{
+    margin-top: 10%;
+}
+
 .inputs div .input-cadastro{
     width: 70%;
     height: 45px;
@@ -74,6 +87,7 @@ body{
     font-size: 24px;
     color: #fff;
     border-radius: 5px;
+    margin-bottom: 5%;
 }
 
 .inputs div label{
@@ -112,4 +126,30 @@ body{
     color: #fff;
     text-decoration: none;
     border-bottom: solid 1px #fff;
+}
+
+.inputs div span{
+    margin-top: 3%;
+}
+
+@media only screen and (max-width: 800px){
+    body{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-cadastro {
+        width: 95vw;
+        padding: 0;
+        margin: 0;
+    }
+    .container-cadastro .box{
+        width: 95vw;
+    }
+    .logo{
+        height: 20vh;
+        display: flex;
+        justify-content: center;
+    }
 }
