@@ -14,26 +14,53 @@
         <img src="../imgs/logo/logo7.png" alt="" width="300px">
     </div>
     <div class="container-cadastro">
-        <div class="box">
+        <div id="tela1" class="box ativa">
             <div class="titulo">
                 <h1>Criar nova</h1>
                 <h1>conta</h1>
             </div>
 
             <div class="inputs">
-                <div>
+                <div class="div-input-cadastro">
                     <label class="primeira-label" for="">Nome</label>
                     <input class="input-cadastro" type="text">
                 </div>
-                <div>
+                <div class="div-input-cadastro">
                     <label for="">Email</label>
                     <input class="input-cadastro" type="email">
                 </div>                
-                <div>
+                <div class="div-input-cadastro">
                     <label for="">Password</label>
                     <input class="input-cadastro" type="password">
                 </div>
+                <div class="div-btn-cadastro">
+                    <input onclick="proximo()" class="btn-cadastro" type="submit" value="Próximo">
+                </div>
                 <div>
+                    <span class="span-entrar">Já possui uma conta? <a href="#">Entrar</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="tela2" class="box">
+            <div class="titulo">
+                <h1>Criar nova</h1>
+                <h1>conta pagina 2</h1>
+            </div>
+
+            <div class="inputs">
+                <div class="div-input-cadastro">
+                    <label class="primeira-label" for="">Nome</label>
+                    <input class="input-cadastro" type="text">
+                </div>
+                <div class="div-input-cadastro">
+                    <label for="">Email</label>
+                    <input class="input-cadastro" type="email">
+                </div>                
+                <div class="div-input-cadastro">
+                    <label for="">Password</label>
+                    <input class="input-cadastro" type="password">
+                </div>
+                <div class="div-btn-cadastro">
                     <input class="btn-cadastro" type="submit" value="Cadastrar">
                 </div>
                 <div>
@@ -42,5 +69,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        let telaAtiva = 1;
+
+        function proximo() {
+            document.getElementById(`tela${telaAtiva}`).classList.remove('ativa');
+            document.getElementById(`tela${telaAtiva}`).classList.add('anterior');
+            telaAtiva++;
+            document.getElementById(`tela${telaAtiva}`).classList.remove('proxima');
+            document.getElementById(`tela${telaAtiva}`).classList.add('ativa');
+        }
+
+    </script>
 </body>
 </html>
