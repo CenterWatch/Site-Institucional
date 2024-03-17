@@ -8,13 +8,13 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Be Vietnam Pro', sans-serif; */
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 h1{
     color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Young Serif', serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Young Serif', serif; */
     letter-spacing: 7px; 
 }
 
@@ -83,8 +83,8 @@ h1{
 .conteudo h1{
     font-size: 90px;
     font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Young Serif', serif; 
+    /* font-family: 'Poppins', sans-serif; */ 
+    /* font-family: 'Young Serif', serif;  */
     letter-spacing: 7px;
     color: rgb(255, 255, 255);
 }
@@ -96,8 +96,8 @@ h1{
     color: beige;
     color: #ffffff;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Young Serif', serif; 
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Young Serif', serif;  */
 }
 
 .conteudo .btn{
@@ -143,7 +143,7 @@ h1{
 }
 .sobre .col1,.col2{
     width: 40%;
-    background-color: rgb(230, 230, 230);
+    /* background-color: rgb(230, 230, 230); */
 }
 .col1{
     height: 50%;
@@ -151,21 +151,21 @@ h1{
     flex-direction: column;
     justify-content: space-evenly;
     padding: 10px;
-    background-color: rgb(200, 200, 200);
+   
 }
 
 .col1 h2{
     font-size: 64px;
     color: #62b6cb;
     font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Young Serif', serif;  
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Young Serif', serif;   */
     align-items: center;
     text-shadow: 2px 2px 6px #2222227e;
 }
 
 .col1 span{
-    font-family:'Zen Kaku Gothic New', sans-serif;
+    /* font-family:'Zen Kaku Gothic New', sans-serif; */
     font-size: 22px;
     letter-spacing: 2.5px;
 }
@@ -224,6 +224,60 @@ h1{
     height: 100%;
     transition: 0.5s;
 }
+
+/* componentes */
+.containerComp{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+  
+  .componentes {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+  }
+
+  .componentes img {
+    width: 100px; 
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .componentes p {
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .componentes span {
+    display: inline-block; 
+    padding: 10px;
+   
+  }
+
+  .componentes:hover {
+    transition: all 0.5s;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  
+  .componentes img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+
+  
+
+
 
 /* EQUIPE */
 
@@ -369,8 +423,7 @@ h1{
     color: #52c3e3;
     font-size: 22px;
     text-decoration: none;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.50);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 
 }
 .formulario a:hover{
