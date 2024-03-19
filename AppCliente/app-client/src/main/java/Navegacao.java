@@ -1,31 +1,22 @@
-import java.util.Scanner;
-
 public class Navegacao {
-    Usuario usuario = new Usuario();
+    UsuarioHandler usuario = new UsuarioHandler();
     void menu(Integer op) {
         Boolean continuar = true;
         do {
             switch (op) {
                 case 1:
-                    Boolean usuarioEntrou;
-                    do {
-                        usuarioEntrou = usuario.entrar();
-
-                        continuar = !usuarioEntrou;
-                    } while (continuar);
+                        usuario.entrar();
                     break;
 
                 case 2:
                     Boolean usuarioCadastrou;
                     do {
                         usuarioCadastrou = usuario.cadastrar();
-
+                        System.out.println("Redirecionando para tela de login...\n");
                         // Ao finalizar o cadastro, será redirecionado para a opção de login
                         if (usuarioCadastrou)
                             menu(1);
-
-                        continuar = !usuarioCadastrou;
-                    } while (continuar);
+                    } while (!usuarioCadastrou);
                     break;
 
                 case 0:
