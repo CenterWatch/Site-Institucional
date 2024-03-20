@@ -179,3 +179,13 @@ body{
 .proxima {
     transform: translateX(100%);
 }
+
+.btn-retorno{
+    width: 70%;
+}
+
+.btn-retorno button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

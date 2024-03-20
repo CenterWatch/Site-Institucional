@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CenterWatch - Monitoramento de call center</title>
     <link rel="stylesheet" href="../style/cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 <body>
     <div class="logo">
@@ -16,22 +17,22 @@
     <div class="container-cadastro">
         <div id="tela1" class="box ativa">
             <div class="titulo">
-                <h1>Criar nova</h1>
-                <h1>conta</h1>
+                <h1>Inscreva sua</h1>
+                <h1>empresa</h1>
             </div>
 
             <div class="inputs">
                 <div class="div-input-cadastro">
                     <label class="primeira-label" for="">Nome</label>
-                    <input class="input-cadastro" type="text">
+                    <input id="inp1" class="input-cadastro" type="text">
                 </div>
                 <div class="div-input-cadastro">
                     <label for="">Email</label>
-                    <input class="input-cadastro" type="email">
+                    <input id="inp2" class="input-cadastro" type="email">
                 </div>                
                 <div class="div-input-cadastro">
                     <label for="">Password</label>
-                    <input class="input-cadastro" type="password">
+                    <input id="inp3" class="input-cadastro" type="password">
                 </div>
                 <div class="div-btn-cadastro">
                     <input onclick="proximo()" class="btn-cadastro" type="submit" value="Próximo">
@@ -42,23 +43,33 @@
             </div>
         </div>
         <div id="tela2" class="box">
+            <div class="btn-retorno">
+                <button onclick="anterior()"><lord-icon
+                    src="https://cdn.lordicon.com/eavayqgw.json"
+                    trigger="in"
+                    stroke="bold"
+                    state="in-reveal"
+                    colors="primary:#52c3e3,secondary:#52c3e3"
+                    style="width:50px;height:50px">
+                </lord-icon></button>
+            </div>
             <div class="titulo">
-                <h1>Criar nova</h1>
-                <h1>conta pagina 2</h1>
+                <h1>Inscreva sua</h1>
+                <h1>empresa</h1>
             </div>
 
             <div class="inputs">
                 <div class="div-input-cadastro">
                     <label class="primeira-label" for="">Nome</label>
-                    <input class="input-cadastro" type="text">
+                    <input id="inp4" class="input-cadastro" type="text">
                 </div>
                 <div class="div-input-cadastro">
                     <label for="">Email</label>
-                    <input class="input-cadastro" type="email">
+                    <input id="inp5" class="input-cadastro" type="email">
                 </div>                
                 <div class="div-input-cadastro">
                     <label for="">Password</label>
-                    <input class="input-cadastro" type="password">
+                    <input id="inp6" class="input-cadastro" type="password">
                 </div>
                 <div class="div-btn-cadastro">
                     <input class="btn-cadastro" type="submit" value="Cadastrar">
@@ -72,6 +83,7 @@
 
     <script>
 
+        let dados = [];
         let telaAtiva = 1;
 
         function proximo() {
@@ -80,6 +92,21 @@
             telaAtiva++;
             document.getElementById(`tela${telaAtiva}`).classList.remove('proxima');
             document.getElementById(`tela${telaAtiva}`).classList.add('ativa');
+            dados.push(document.getElementById("inp1").value);
+            dados.push(document.getElementById("inp2").value);
+            dados.push(document.getElementById("inp3").value);
+        }
+
+        function anterior(){
+            document.getElementById(`tela${telaAtiva}`).classList.remove('ativa');
+            document.getElementById(`tela${telaAtiva}`).classList.add('proxima');
+            telaAtiva--;
+            document.getElementById(`tela${telaAtiva}`).classList.remove('anterior');
+            document.getElementById(`tela${telaAtiva}`).classList.add('ativa');
+            document.getElementById("inp1").innerText = dados[0];
+            document.getElementById("inp2").innerText = dados[1];
+            document.getElementById("inp3").innerText = dados[2];
+            dados = [];
         }
 
     </script>
