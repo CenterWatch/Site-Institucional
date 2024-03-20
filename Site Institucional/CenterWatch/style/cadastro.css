@@ -16,15 +16,27 @@ body{
 }
 
 .logo{
-    width: 30vw;
+    width: 40vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logo-img{
+    width: 450px;
+}
+.logo h4{
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
 }
 .container-cadastro{
     width: 60vw;
     height: 100vh;
     background-color: transparent;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     padding-right: 5%;
     overflow: hidden;
@@ -74,9 +86,9 @@ body{
     justify-content: flex-start;
 }
 
-.primeira-label{
+/* .primeira-label{
     margin-top: 10%;
-}
+} */
 
 .inputs div .input-cadastro{
     width: 100%;
@@ -159,6 +171,15 @@ body{
         height: 20vh;
         display: flex;
         justify-content: center;
+        width: 300px;
+    }
+    .logo h4{
+        font-size: 14px;
+        width: 100%;
+    }
+    .inputs div .input-cadastro{
+        height: 25px;
+        font-size: 16px;
     }
 }
 
@@ -188,4 +209,10 @@ body{
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1400px){
+    .logo-img{
+        width: 300px;
+    }
 }
