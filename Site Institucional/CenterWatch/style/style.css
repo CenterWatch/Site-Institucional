@@ -167,7 +167,13 @@ h1{
 .col1 span{
     /* font-family:'Zen Kaku Gothic New', sans-serif; */
     font-size: 22px;
-    letter-spacing: 2.5px;
+    letter-spacing: 3px;
+}
+
+.col1 ul li{
+    font-size: 18px;
+    color: #3b3b3b;
+    margin-left: 50px;
 }
 
 .col2{
