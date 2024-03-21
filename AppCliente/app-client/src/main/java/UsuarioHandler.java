@@ -6,10 +6,48 @@ public class UsuarioHandler {
     Scanner leitor = new Scanner(System.in);
     List<Usuario> usuariosCadastrados = new ArrayList<>();
 
+
+    //cria os usuários pelo construtor
+    public void criarUsuarios() {
+        Usuario operador = new Usuario(
+                "Jorge",
+                "Oristano",
+                "(11) 90413-4864",
+                "jorge@centerwatch.com",
+                "senhaJorge",
+                "555888111-20",
+                "operador");
+
+        Usuario supervisor = new Usuario(
+                "Reginaldo",
+                "Carvalho",
+                "(11) 96324-1249",
+                "reginaldo@centerwatch.com",
+                "senhaReginaldo",
+                "666999222-30",
+                "supervisor"
+        );
+
+        Usuario gerente = new Usuario(
+                "Fernanda",
+                "Kennedy",
+                "(11) 94326-1249",
+                "fernanda@centerwatch.com",
+                "senhaFernanda",
+                "777000333-40",
+                "gerente"
+        );
+
+        //adiciona os usuários criados dentro da lista de usuarios cadastrados
+        usuariosCadastrados.add(operador);
+        usuariosCadastrados.add(supervisor);
+        usuariosCadastrados.add(gerente);
+    }
+
     public Boolean verificarUsuarioExiste(String email) {
         for (int i = 0; i < usuariosCadastrados.size(); i++) {
             Usuario usuarioAtual = usuariosCadastrados.get(i);
-            if (usuarioAtual.email.equals(email)) {
+            if (usuarioAtual.email.equalsIgnoreCase(email)) {
                 return true;
             }
         }
@@ -71,10 +109,10 @@ public class UsuarioHandler {
 
             String opcoes = "\n1. Ver perfil";
 
-            if (cargo.equals("Supervisor"))
+            if (cargo.equalsIgnoreCase("Supervisor"))
                 opcoes += "\n2. Ver usuários cadastrados";
 
-            if (cargo.equals("Gerente"))
+            if (cargo.equalsIgnoreCase("Gerente"))
                 opcoes += "\n2. Ver usuários cadastrados\n3. Cadastrar usuários";
 
             opcoes += "\n0. Sair\n";
@@ -92,7 +130,7 @@ public class UsuarioHandler {
                     usuarioLogado.exibirPerfil();
                     break;
                 case 2:
-                    if (cargo.equals("Supervisor") || cargo.equals("Gerente"))
+                    if (cargo.equalsIgnoreCase("Supervisor") || cargo.equalsIgnoreCase("Gerente"))
                         exibirUsuarios();
                     break;
 
@@ -110,6 +148,12 @@ public class UsuarioHandler {
 
     public void entrar() {
 
+        //verifica se a lista de usuarios cadastrados
+        //está vazia para impedir de criar usuários repetidos
+        if(usuariosCadastrados.isEmpty()) {
+            criarUsuarios();
+        }
+
         System.out.print("E-mail: ");
         String user = leitor.next();
         System.out.print("Senha: ");
@@ -117,7 +161,7 @@ public class UsuarioHandler {
 
         for (int i = 0; i < usuariosCadastrados.size(); i++) {
             Usuario usuarioAtual = usuariosCadastrados.get(i);
-            if (usuarioAtual.email.equals(user) && usuarioAtual.senha.equals(pwd)) {
+            if (usuarioAtual.email.equals(user) && usuarioAtual.senha.equalsIgnoreCase(pwd)) {
                 // ENTROU COM SUCESSO
                 System.out.println("\nLogin efetuado com sucesso! Redirecionando para seu perfil...\n");
                 usuarioLogado(i);
