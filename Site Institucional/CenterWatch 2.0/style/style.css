@@ -1,0 +1,321 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cor1{
+    color: #fff;
+}
+.cor1:hover{
+    border-bottom: 2px solid #fff;
+}
+
+.cor2{
+    color: #222;
+}
+.cor2:hover{
+    border-bottom: 2px solid #000;
+}
+
+html { 
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;             
+}
+
+
+body{
+    width: 100vw;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(12,3,51,0.3),rgba(12,3,51,0.3));
+    display: flex;
+    padding: 0 5%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: -1;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    height: 15vh;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+}
+
+header .links{
+    display: flex;
+}
+
+head .links li{
+    list-style: none;
+    list-style-type: none;
+}
+
+header .links a{
+    margin: 10px 30px 10px 30px;
+    font-size: 20px;
+    font-family: "Josefin Sans", sans-serif;
+    text-decoration: none;
+}
+
+header .links a:nth-child(5){
+    padding: 8px 20px 6px 20px;
+    background: linear-gradient(to right, #52c3e3, #684fd8);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    align-items: center;
+    display: flex;
+}
+
+/* About us */
+
+.about{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.about{
+    .col1, .col2{
+        display: flex;
+        width: 40vw;
+    }
+
+    .col1{
+        justify-content: center;
+    }
+
+    .col1 img{
+        border-radius: 10px;
+    }
+
+    .col2{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col2 h1{
+        /* color: #050D36; */
+        background: -webkit-linear-gradient(  #4e8b9e, #050D36);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 42px;
+        display: flex;
+        margin-bottom: 5%;
+        margin-right: 5%;
+    }
+
+    .col2 div{
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .col2 ol{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .col2 ol li{
+        color: #050D36;
+        font-size: 24px;
+        list-style-type: square;
+        padding: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .col2 ol span{
+        width: 600px;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 20px;
+        color: #777C90;
+        text-shadow: 1px 1px #22222259;
+    }
+}
+
+/* Solução */
+
+.solutions{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Serviços */
+
+.services{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services{
+    .container-services{
+        width: 95%;
+        height: 90%;
+        background: linear-gradient(to right, #2d0333, #3d24ad);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container-services .titulo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-services h1{
+        font-family: "Josefin Sans", sans-serif;
+        color: #5a0075;
+        font-size: 32px;
+        margin-top: 20%;
+    }
+    .container-services h1:nth-child(2){
+        color: #fff;
+        font-size: 42px;
+        margin-top: 10%;
+    }
+    .container-services .container-boxs{
+        width: 85%;
+        height: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .container-boxs .card{
+        width: 30%;
+        height: 70%;
+        border-radius: 20px;
+        background-color: #ffffff10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.5s;
+    }
+    .container-boxs .card div{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 45%;
+        margin-bottom: 10%;
+    }
+    .container-boxs .card h3{
+        color: #fff;
+        font-size: 26px;
+        font-family: "Josefin Sans", sans-serif;
+    }
+    .container-boxs .card span{
+        display: flex;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+        color: #ffffffb7;
+        width: 85%;
+        letter-spacing: 1px;
+    }
+    .container-boxs  .card:hover{
+        transform: scale(1.1);
+    }
+}
+
+
+/* Rating */
+
+.rating{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating {
+    .container-rating{
+        width: 95%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container-rating .titulo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 15%;
+        justify-content: space-between;
+    }
+    .container-rating h1:nth-child(1){
+        font-family: "Josefin Sans", sans-serif;
+        color: #5a0075;
+        font-size: 26px;
+    }
+    .container-rating h1:nth-child(2){
+        background: -webkit-linear-gradient(  #7c61f1, #2d0333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 42px;
+    }
+    .container-boxs{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 80%;
+    }
+    .container-boxs .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 30%;
+        height: 90%;
+    }
+    .container-boxs .card span{
+        width: 80%;
+        word-spacing: 1px;
+        font-family: "josefin sans";
+        font-size: 20px;
+        color: #776c7eb7;
+    }
+    .container-boxs .card h2{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #01042e;
+    }
+    .container-boxs .card:nth-child(1) h2:nth-child(1){
+        margin-top: 15%;
+    }
+}
