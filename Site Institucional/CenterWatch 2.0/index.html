@@ -25,11 +25,11 @@
                 <img src="https://i.imgur.com/RjhX0a9.png" alt="" width="200px">
             </div>
             <div class="links">
-                <a class="cor1" href="#about">Sobre nós</a>
-                <a class="cor1" href="#services">Serviços</a>
-                <a class="cor1" href="#rating">Depoimentos</a>
-                <a class="cor1" href="#">Time</a>
-                <a class="cor1" href="#">CONTATE-NOS</a>
+                <a class="cor1 navbar" href="#about">Sobre nós</a>
+                <a class="cor1 navbar" href="#services">Serviços</a>
+                <a class="cor1 navbar" href="#rating">Depoimentos</a>
+                <a class="cor1 navbar" href="#team">Time</a>
+                <a class="cor1 navbar" href="#">CONTATE-NOS</a>
             </div>
         </header>
 
@@ -269,8 +269,26 @@
             const scrollY = window.scrollY; 
             const pageHeight = document.documentElement.scrollHeight;  
     
-            const scrollPercentage = (scrollY / pageHeight) * 100; 
+            // const scrollPercentage = (scrollY / pageHeight) * 100; 
+            const scrollTop = window.scrollY || window.pageYOffset
+            var elementos = document.querySelectorAll(".navbar")
 
+            var teamTop = document.getElementById("team").offsetTop - 150
+            var aboutTop = document.getElementById('about').offsetTop - 150
+            var serviceTop = document.getElementById('services').offsetTop - 150
+            var ratingTop = document.getElementById('rating').offsetTop - 150
+
+            elementos.forEach(elemento => {
+                if(scrollTop <= aboutTop || (scrollTop >= serviceTop && scrollTop <= ratingTop) || scrollTop >= teamTop){
+                    elemento.classList.remove('cor2')
+                    elemento.classList.add('cor1')
+                }else if(scrollTop > aboutTop ){
+                    elemento.classList.remove('cor1')
+                    elemento.classList.add('cor2')
+                }
+            });
+
+            /*
             if(scrollPercentage  >= 19){
                 var  elements = document.querySelectorAll(".cor1");
                 elements.forEach(function(element){
@@ -284,6 +302,7 @@
                     element.classList.add("cor1")
                 })
             }
+            */
         })
     </script>
 
