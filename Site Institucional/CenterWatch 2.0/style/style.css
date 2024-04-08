@@ -325,10 +325,9 @@ header .links a:nth-child(5){
 /* Team */
 
 .team{
-    height: 80vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 .team{
@@ -336,7 +335,7 @@ header .links a:nth-child(5){
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100%;
+        height: 85%;
         width: 90%;
         border-radius: 15px;
         background-color: #222222f8;
@@ -424,4 +423,115 @@ header .links a:nth-child(5){
         justify-content: space-between;
         margin-top: 5%;
     }
+}
+
+/* Contact */
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+
+    .container-contact{
+        width: 95%;
+        height: 97%;
+        background: linear-gradient(to left top, rgb(60, 98, 121), rgb(98, 2, 187));
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 10% 0 10%;
+        align-items: center;
+    }
+    .titulo{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        height: 60%;
+        justify-content: space-evenly;
+    }
+    .titulo h1{
+        color: #fff;
+        font-size: 32px;
+        font-family: "Josefin Sans", sans-serif;
+    }
+    .titulo h3{
+        color: #ffffff;
+        font-size: 21px;
+        font-family: "Josefin Sans", sans-serif;
+        word-spacing: 1px;
+        line-height: 25px;
+    }
+    .titulo div{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .titulo  div img{
+        margin-left: 15px;
+        cursor: pointer;
+        border: solid 2px #5a0075;
+        border-radius: 100px;
+        padding: 5px;
+    }
+
+    .formulario{
+        width: 40%;
+        height: 80%;
+        background-color: #ffffff21;
+        padding: 3%;
+        border-radius: 30px;
+    }
+    .formulario .titulo-form{
+        color: #fff;
+        font-size: 26px;
+        font-family: "Josefin Sans", sans-serif;
+    }
+    .formulario .form{
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 3%;
+    }
+    .form div{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 17%;
+        margin: 2%  0   0 0;
+    }
+    .form div label{
+        color: #fff;
+        font-size: 22px;
+        font-family: "Josefin Sans", sans-serif;
+    }
+    .form div  input{
+        height: 70%;
+        background-color: #ffffff13;
+        border: solid 2px #fff;
+        color: #fff;
+        outline: none;
+        padding: 15px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 22px;
+    }
+    .form  div:nth-child(5){
+        width: 50%;
+    }
+    .form div button{
+        width: 100%;
+        height: 60%;
+        background: linear-gradient(to left top, rgb(91, 56, 100), rgb(98, 2, 187));
+        border: none;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 26px;
+        font-family: "Josefin Sans", sans-serif;
+        cursor: pointer;
+    }
+
 }
