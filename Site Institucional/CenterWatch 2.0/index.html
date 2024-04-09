@@ -31,6 +31,17 @@
                 <a class="cor1 navbar" href="#team">Time</a>
                 <a class="cor1 navbar" href="#contact">CONTATE-NOS</a>
             </div>
+            <div onclick="dropdown()" class="links" >
+                <img src="imgs/geral/menu-header.png" alt="" width="60px">
+                <ul id="menulink" class="dropdown">
+                    <li><button onclick="fecharMenu()">X</button></li>
+                    <li><a class="cor1 navbar" href="#about">Sobre nós</a></li>
+                    <li><a class="cor1 navbar" href="#services">Serviços</a></li>
+                    <li><a class="cor1 navbar" href="#rating">Depoimentos</a></li>
+                    <li><a class="cor1 navbar" href="#team">Time</a></li>
+                    <li><a class="cor1 navbar" href="#contact">Contato</a></li>
+                </ul>
+            </div>
         </header>
 
         <div class="main-section">
@@ -345,6 +356,21 @@
             }
             */
         })
+
+        var atual = 1;
+        var menu = document.getElementById('menulink');
+        function dropdown(){
+            if(atual ==  1){
+                menu.classList.remove("dropdown");
+                menu.classList.add("aparece");
+                atual = 0;
+            }else{
+                menu.classList.remove("aparece");
+                menu.classList.add("dropdown");
+                atual = 1;
+            }
+        }
+        
     </script>
 
 </body>
