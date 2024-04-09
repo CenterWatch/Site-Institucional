@@ -83,6 +83,7 @@ header .links:nth-child(3){
     }
 }
 
+
 header .links:nth-child(3){
     ul{
         list-style: none;
@@ -262,14 +263,16 @@ header .links:nth-child(2) a:nth-child(5){
         align-items: center;
     }
     .container-boxs .card{
-        width: 30%;
-        height: 70%;
+        width: calc(30% - 20px); 
+        height: calc(70% - 20px); 
         border-radius: 20px;
         background-color: #ffffff10;
+        margin-bottom: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         transition: 0.5s;
+        box-sizing: border-box; 
     }
     .container-boxs .card div{
         display: flex;
@@ -585,3 +588,40 @@ header .links:nth-child(2) a:nth-child(5){
     }
 
 }
+
+
+/* Responsividade */
+@media only screen and (max-width: 1200px) {
+    .about{
+        flex-direction: column;
+        display: flex;
+    }
+    .about img{
+        width: 500px;
+    }
+
+    
+    .services{
+        height: 150vh;
+    
+        .container-services{
+            .titulo h1{
+                text-align: center;
+            }
+            .container-boxs{
+                display: flex;
+                flex-direction: column;
+            }
+            .container-boxs .card{
+                width: 80%;
+            }
+            .container-boxs .card span{
+                font-size: 14px;
+            }
+            .container-boxs .card div h3{
+                font-size: 22px;
+            }
+        }
+    }
+}
+
