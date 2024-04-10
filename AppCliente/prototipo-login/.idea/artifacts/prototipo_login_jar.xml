@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="prototipo-login:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/prototipo_login_jar</output-path>
+    <root id="archive" name="prototipo-login.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="prototipo-login" />
+    </root>
+  </artifact>
+</component>
