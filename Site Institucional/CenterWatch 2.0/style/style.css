@@ -537,6 +537,7 @@ header .links:nth-child(2) a:nth-child(5){
         background-color: #ffffff21;
         padding: 3%;
         border-radius: 30px;
+        
     }
     .formulario .titulo-form{
         color: #fff;
@@ -769,8 +770,12 @@ footer {
                     flex-direction: column;
                     .info{
                         margin-bottom: 10px;
+                        width: 70%;
                     }
                 }
+            }
+            .titulo{
+                text-align: center;
             }
         }
     }
@@ -778,11 +783,15 @@ footer {
         height: 150vh;
 
         .container-contact{
+            justify-content: space-evenly;
+            padding: 0%;
+            height: 98%;
             .titulo{
-
+                height: 40%;
             }
             .formulario{
-                height: 40%;
+                height: 45%;
+                
                 .form input{
                     height: 50px;
                 }
@@ -795,6 +804,9 @@ footer {
     }
     #menulink{
         width: 22%;
+    }
+    .about {
+        padding: 10px;
     }
 
 }
