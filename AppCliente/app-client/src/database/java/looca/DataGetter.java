@@ -6,8 +6,9 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.rede.Rede;
 
 public class DataGetter {
-    private Looca looca;
 
+    //classe utilizada para pegar os dados do looca
+    private Looca looca;
     private Memoria memoria;
     private Processador cpu;
     private Rede rede;

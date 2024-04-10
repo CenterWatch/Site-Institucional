@@ -4,6 +4,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class Connection {
 
+    //classe de conexão com o banco de dados
+    //altere os dados inseridos do perfil do banco
+    //com o seu respectivo perfil e senha nas linhas 18 e 19
+
     private JdbcTemplate dbConnection;
     BasicDataSource dataSource = new BasicDataSource();
 
