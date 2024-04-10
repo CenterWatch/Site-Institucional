@@ -75,8 +75,8 @@ CREATE TABLE maquina (
     patrimonio CHAR(5) PRIMARY KEY,
     sistema_operacional VARCHAR(45),
     cpu VARCHAR(80),
-    ram INT, -- Bytes
-    armazenamento INT, -- Bytes
+    ram BIGINT, -- Bytes
+    armazenamento BIGINT, -- Bytes
     detalhes VARCHAR(255),
     fk_funcionario INT,
     CONSTRAINT fk_funcionario_maquina FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
@@ -86,10 +86,10 @@ CREATE TABLE registro (
     id_registro INT PRIMARY KEY AUTO_INCREMENT,
     data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     uso_cpu DECIMAL(3,1), -- Porcentagem
-    uso_ram INT, -- Bytes
-    disponivel_ram INT, -- Bytes
+    uso_ram BIGINT, -- Bytes
+    disponivel_ram BIGINT, -- Bytes
     ipv4 VARCHAR(15),
-    pacotes_recebidos INT,
+    pacotes_recebidos BIGINT,
     fk_maquina CHAR(5),
     CONSTRAINT fk_maquina_registro FOREIGN KEY (fk_maquina) REFERENCES maquina(patrimonio)
 );
