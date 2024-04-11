@@ -15,7 +15,7 @@ public class Connection {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/cwdb");
         dataSource.setUsername("root");
-        dataSource.setPassword("");
+        dataSource.setPassword("4#d20+15+1d6");
 
         dbConnection = new  JdbcTemplate(dataSource);
     }

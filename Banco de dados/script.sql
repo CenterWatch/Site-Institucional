@@ -95,23 +95,24 @@ CREATE TABLE registro (
 );
 
 CREATE TABLE volume (
-    id_volume INT PRIMARY KEY,
+    id_volume INT PRIMARY KEY AUTO_INCREMENT,
+    fk_registro INT,
     nome VARCHAR(45),
     ponto_montagem VARCHAR(45),
-    volume_total INT, -- Bytes
-    volume_disponivel INT, -- Bytes
-    CONSTRAINT fk_registro_volume FOREIGN KEY (id_volume) REFERENCES registro(id_registro)
-);
+    volume_total BIGINT, -- Bytes
+    volume_disponivel BIGINT, -- Bytes
+    CONSTRAINT fk_registro_volume FOREIGN KEY (fk_registro) REFERENCES registro(id_registro)
+) AUTO_INCREMENT = 20000;
 
 CREATE TABLE rede (
-    id_rede INT PRIMARY KEY,
+    id_rede INT PRIMARY KEY AUTO_INCREMENT,
+    fk_registro INT,
     nome VARCHAR(45),
     ipv4 VARCHAR(15),
-    mac VARCHAR(17),
-    bytes_recebidos INT,
-    bytes_enviados INT,
-    pacotes_recebidos INT,
-    pacotes_enviados INT,
-    CONSTRAINT fk_registro_rede FOREIGN KEY (id_rede) REFERENCES registro(id_registro)
-);
+    bytes_recebidos BIGINT,
+    bytes_enviados BIGINT,
+    pacotes_recebidos BIGINT,
+    pacotes_enviados BIGINT,
+    CONSTRAINT fk_registro_rede FOREIGN KEY (fk_registro) REFERENCES registro(id_registro)
+) AUTO_INCREMENT = 10000;
 
