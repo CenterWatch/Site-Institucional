@@ -634,7 +634,7 @@ footer {
         display: flex;
     }
     .about img{
-        width: 500px;
+        width: 90vw;
     }
 
     .cor2{
@@ -760,7 +760,7 @@ footer {
     }
 
     .team{
-        height: 300vh;
+        height: 330vh;
         .container-team{
             height: 98%;
             justify-content: space-around;
