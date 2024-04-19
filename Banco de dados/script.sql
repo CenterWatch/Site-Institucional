@@ -56,8 +56,9 @@ CREATE TABLE apontamento (
     chamadas_fcr INT,
     convertidos INT,
     detalhe VARCHAR(2000),
-    CONSTRAINT fk_apontamento_funcionario FOREIGN KEY (fk_apontamento) REFERENCES apontamento(id_apontamento)
-)
+    fk_funcionario INT NOT NULL,
+    CONSTRAINT fk_apontamento_funcionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
+);
 
 CREATE TABLE meta (
     id_meta INT PRIMARY KEY AUTO_INCREMENT,
@@ -73,15 +74,15 @@ CREATE TABLE meta_atribuida (
     fk_meta INT,
     fk_funcionario INT,
     concluida TINYINT DEFAULT 0,
-    dt_concluida DEFAULT (CURRENT_DATE)
+    dt_concluida DATE DEFAULT (CURRENT_DATE)
 );
 
 CREATE TABLE tempo_ociosidade (
     id_tempo_ociosidade INT PRIMARY KEY AUTO_INCREMENT,
     dt_hora_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
     tempo_registro_seg INT,
-    fk_funcionario INT,
-    CONSTRAINT fk_funcionario_tempo_ociosidade FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
+    fk_usuario INT,
+    CONSTRAINT fk_usuario_tempo_ociosidade FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario)
 );
 
 CREATE TABLE artigo (
@@ -108,12 +109,10 @@ CREATE TABLE ocorrencia (
 
 CREATE TABLE maquina (
     id_maquina INT PRIMARY KEY AUTO_INCREMENT,
-    patrimonio VARCHAR(45),
-    sistema_operacional VARCHAR(45),
+    so VARCHAR(45),
     cpu VARCHAR(80),
     ram BIGINT, -- Bytes
-    armazenamento BIGINT, -- Bytes
-    detalhes VARCHAR(255),
+    hostname VARCHAR(80),
     fk_empresa INT,
     CONSTRAINT fk_empresa_maquina FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa)
 );
@@ -125,9 +124,17 @@ CREATE TABLE usuario (
     usuario VARCHAR(80),
     senha VARCHAR(80),
     dt_criado DATETIME DEFAULT CURRENT_TIMESTAMP,
-    ativo TINYINT DEFAULT 1,
     CONSTRAINT fk_maquina_usuario FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
     CONSTRAINT fk_funcionario_usuario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
+);
+
+CREATE TABLE sessao (
+    id_sessao INT PRIMARY KEY AUTO_INCREMENT,
+    fk_maquina INT,
+    fk_usuario INT,
+    dt_hora_sessao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_maquina_sessao FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+    CONSTRAINT fk_usuario_sessao FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario)
 );
 
 CREATE TABLE registro (
@@ -136,9 +143,8 @@ CREATE TABLE registro (
     uso_cpu DECIMAL(3,1), -- Porcentagem
     uso_ram BIGINT, -- Bytes
     disponivel_ram BIGINT, -- Bytes
-    pacotes_recebidos BIGINT,
-    fk_maquina CHAR(5),
-    CONSTRAINT fk_maquina_registro FOREIGN KEY (fk_maquina) REFERENCES maquina(patrimonio)
+    fk_maquina INT,
+    CONSTRAINT fk_maquina_registro FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina)
 );
 
 CREATE TABLE volume (
@@ -150,15 +156,3 @@ CREATE TABLE volume (
     volume_disponivel BIGINT, -- Bytes
     CONSTRAINT fk_registro_volume FOREIGN KEY (fk_registro) REFERENCES registro(id_registro)
 ) AUTO_INCREMENT = 20000;
-
-CREATE TABLE rede (
-    id_rede INT PRIMARY KEY AUTO_INCREMENT,
-    fk_registro INT,
-    nome VARCHAR(45),
-    ipv4 VARCHAR(15),
-    bytes_recebidos BIGINT,
-    bytes_enviados BIGINT,
-    pacotes_recebidos BIGINT,
-    pacotes_enviados BIGINT,
-    CONSTRAINT fk_registro_rede FOREIGN KEY (fk_registro) REFERENCES registro(id_registro)
-) AUTO_INCREMENT = 10000;
