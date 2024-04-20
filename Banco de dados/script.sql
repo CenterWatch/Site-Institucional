@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS cwdb;
+
 CREATE DATABASE cwdb;
 
 USE cwdb;
@@ -19,17 +20,20 @@ CREATE TABLE empresa (
     razao_social VARCHAR(45) NOT NULL,
     cnpj CHAR(14) NOT NULL,
     fk_filial INT,
-    CONSTRAINT fk_filial_empresa FOREIGN KEY (fk_filial) REFERENCES empresa(id_empresa)
+    CONSTRAINT fk_filial_empresa FOREIGN KEY (fk_filial) REFERENCES empresa(id_empresa),
+    fk_endereco INT,
+    CONSTRAINT fk_endereco_empresa FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco)
 ) AUTO_INCREMENT = 1000;
 
 CREATE TABLE parametro_alerta (
     id_parametro INT PRIMARY KEY,
-    max_cpu DECIMAL(3,1),
-    max_ram DECIMAL(3,1),
-    max_volume DECIMAL(3,1),
+    max_cpu DECIMAL(3, 1),
+    max_ram DECIMAL(3, 1),
+    max_volume DECIMAL(3, 1),
     sensibilidade_mouse INT,
     timer_mouse_ms INT,
     intervalo_registro_ms INT,
+    intervalo_volume_ms INT,
     CONSTRAINT fk_empresa_parametro FOREIGN KEY (id_parametro) REFERENCES empresa(id_empresa)
 );
 
@@ -42,7 +46,7 @@ CREATE TABLE funcionario (
     email VARCHAR(60) NOT NULL,
     dt_nasc DATE,
     cpf CHAR(14) NOT NULL,
-    cargo VARCHAR(45), -- Picklist
+    cargo VARCHAR(45),
     fk_supervisor INT,
     fk_empresa INT,
     CONSTRAINT fk_supervisor_funcionario FOREIGN KEY (fk_supervisor) REFERENCES funcionario(id_funcionario),
@@ -52,9 +56,6 @@ CREATE TABLE funcionario (
 CREATE TABLE apontamento (
     id_apontamento INT PRIMARY KEY AUTO_INCREMENT,
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    chamadas_atendidas INT,
-    chamadas_fcr INT,
-    convertidos INT,
     detalhe VARCHAR(2000),
     fk_funcionario INT NOT NULL,
     CONSTRAINT fk_apontamento_funcionario FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
@@ -75,8 +76,8 @@ CREATE TABLE tarefa (
 
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY,
-    usuario VARCHAR(80),
-    senha VARCHAR(80),
+    username VARCHAR(80),
+    senha VARCHAR(80) CHECK (LENGTH(senha) >= 8),
     dt_criado DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_funcionario_usuario FOREIGN KEY (id_usuario) REFERENCES funcionario(id_funcionario)
 );
@@ -104,7 +105,7 @@ CREATE TABLE ocorrencia (
     titulo VARCHAR(45),
     descricao VARCHAR(255),
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    prioridade VARCHAR(45), -- Picklist
+    prioridade VARCHAR(45),
     fk_funcionario INT,
     CONSTRAINT fk_funcionario_ocorrencia FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario),
     fk_atribuido INT
@@ -115,7 +116,7 @@ CREATE TABLE maquina (
     hostname VARCHAR(80),
     so VARCHAR(80),
     cpu VARCHAR(80),
-    ram BIGINT, -- Bytes
+    ram BIGINT,
     fk_empresa INT,
     CONSTRAINT fk_empresa_maquina FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa)
 );
@@ -132,15 +133,15 @@ CREATE TABLE sessao (
 CREATE TABLE registro (
     id_registro INT PRIMARY KEY AUTO_INCREMENT,
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    uso_cpu DECIMAL(3,1), -- Porcentagem
-    uso_ram BIGINT, -- Bytes
-    disponivel_ram BIGINT, -- Bytes
+    uso_cpu DECIMAL(3, 1),
+    uso_ram BIGINT,
+    disponivel_ram BIGINT,
     fk_sessao INT,
     CONSTRAINT fk_sessao_registro FOREIGN KEY (fk_sessao) REFERENCES sessao(id_sessao)
 );
 
 CREATE TABLE volume (
-    id_volume INT PRIMARY KEY AUTO_INCREMENT,
+    uuid CHAR(36) PRIMARY KEY,
     fk_maquina INT,
     nome VARCHAR(45),
     ponto_montagem VARCHAR(45),
