@@ -25,11 +25,18 @@ CREATE TABLE empresa (
     CONSTRAINT fk_endereco_empresa FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco)
 ) AUTO_INCREMENT = 1000;
 
+CREATE TABLE processo_perm (
+    id_processo INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    perm CHAR(1) NOT NULL,
+    CONSTRAINT fk_empresa_processo_perm FOREIGN KEY (id_processo) REFERENCES empresa(id_empresa)
+);
+
 CREATE TABLE parametro_alerta (
     id_parametro INT PRIMARY KEY,
-    max_cpu DECIMAL(3, 1),
-    max_ram DECIMAL(3, 1),
-    max_volume DECIMAL(3, 1),
+    max_cpu DECIMAL(4, 1),
+    max_ram DECIMAL(4, 1),
+    max_volume DECIMAL(4, 1),
     sensibilidade_mouse INT,
     timer_mouse_ms INT,
     intervalo_registro_ms INT,
@@ -133,7 +140,7 @@ CREATE TABLE sessao (
 CREATE TABLE registro (
     id_registro INT PRIMARY KEY AUTO_INCREMENT,
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    uso_cpu DECIMAL(3, 1),
+    uso_cpu DECIMAL(4, 1),
     uso_ram BIGINT,
     disponivel_ram BIGINT,
     fk_sessao INT,
@@ -152,5 +159,16 @@ CREATE TABLE registro_volume (
     id_registro_volume INT PRIMARY KEY AUTO_INCREMENT,
     volume_disponivel BIGINT,
     volume_total BIGINT,
-    dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP
+    dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fk_volume CHAR(36) NOT NULL,
+    CONSTRAINT fk_registro_volume FOREIGN KEY (fk_volume) REFERENCES volume(uuid)
+);
+
+CREATE TABLE processo (
+    id_processo INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    caminho VARCHAR(255),
+    uso_ram BIGINT,
+    fk_registro INT,
+    CONSTRAINT fk_registro_processo FOREIGN KEY (fk_registro) REFERENCES registro(id_registro)
 );
