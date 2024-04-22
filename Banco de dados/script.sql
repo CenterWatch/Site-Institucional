@@ -107,17 +107,6 @@ CREATE TABLE artigo (
     CONSTRAINT fk_funcionario_artigo FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
 );
 
-CREATE TABLE ocorrencia (
-    id_ocorrencia INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(45),
-    descricao VARCHAR(255),
-    dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    prioridade VARCHAR(45),
-    fk_funcionario INT,
-    CONSTRAINT fk_funcionario_ocorrencia FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario),
-    fk_atribuido INT
-);
-
 CREATE TABLE maquina (
     id_maquina INT PRIMARY KEY AUTO_INCREMENT,
     hostname VARCHAR(80),
@@ -135,6 +124,17 @@ CREATE TABLE sessao (
     dt_hora_sessao DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_maquina_sessao FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
     CONSTRAINT fk_usuario_sessao FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE ocorrencia (
+    id_ocorrencia INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(45),
+    descricao VARCHAR(255),
+    dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    prioridade VARCHAR(45),
+    fk_sessao INT,
+    CONSTRAINT fk_sessao_ocorrencia FOREIGN KEY (fk_sessao) REFERENCES sessao(id_sessao),
+    fk_atribuido INT
 );
 
 CREATE TABLE registro (
