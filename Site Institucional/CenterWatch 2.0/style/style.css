@@ -524,6 +524,15 @@ header .links:nth-child(2) a:nth-child(5){
         justify-content: space-between;
         margin-top: 5%;
     }
+    .icone {
+        font-size: 25px;
+        color: white;
+        transition: 100ms;
+    }
+    .icone:hover {
+        cursor: pointer;
+        color: #52c3e3;
+    }
 }
 
 /* Contact */
