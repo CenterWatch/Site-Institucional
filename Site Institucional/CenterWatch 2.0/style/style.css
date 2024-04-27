@@ -56,12 +56,15 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    width: 80vw;
+    width: 100vw;
     height: 15vh;
     align-items: center;
     position: fixed;
+    flex-direction: column;
     z-index: 100;
     top: 0;
+    backdrop-filter: blur(4px);
+    background-color: #ffffff1e;
 }
 
 header .links:nth-child(2){
@@ -265,6 +268,43 @@ header .links:nth-child(2) a:nth-child(5){
     display: flex;
     justify-content: center;
     align-items: center;
+
+    flex-direction: column;
+}
+.titulo-solucao{
+    h1{
+        font-size: 36px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding-bottom: 15px;
+    }
+}
+.container-solucao{
+    width: 80%;
+    height: 90%;
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+
+    .lin{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        border: solid 2px black;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .card{
+            height: 90%;
+            width: 45%;
+            border: solid 2px black;
+        }
+        .card-e{
+            background: linear-gradient(to right, #4f32cf, #3d24ad);
+        }
+        .card-d{
+            background: linear-gradient(to left, #4f32cf, #3d24ad);
+        }
+    }
 }
 
 /* Serviços */
@@ -688,6 +728,14 @@ footer {
     .about{
         flex-direction: column;
         display: flex;
+        .col2 ol{
+            li{
+                font-size: 30px;
+            }
+            span{
+                font-size: 24px;
+            }
+        }
     }
     .about img{
         width: 90vw;
@@ -696,7 +744,22 @@ footer {
     .cor2{
         color: #fff;
     }
-    
+
+    .solutions .container-solucao{
+        align-items: center;
+        width: 95vw;
+        height: 150vh;
+        gap: 30px;
+        justify-content: space-evenly;
+        .lin{
+            flex-direction: column;
+            width: 100%;
+            gap: 30px;
+            .card{
+                width: 90%;
+            }
+        }
+    }
     .services{
         height: 150vh;
     
@@ -730,12 +793,21 @@ footer {
             .titulo h1{
                 text-align: center;
             }
+            .titulo h1:nth-child(1){
+                font-size: 42px;
+            }
+            .titulo h1:nth-child(2){
+                font-size: 52px;
+            }
             .container-boxs{
                 display: flex;
                 flex-direction: column;
             }
             .container-boxs .card{
-                width: 80%;
+                width: 100%;
+                span{
+                    font-size: 28px;
+                }
             }
             .container-boxs .card  span:nth-child(5){
                 margin-bottom: 5%;
@@ -775,6 +847,13 @@ footer {
             }
         }
     }
+    header{
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        padding: 0 30px;
+        background-color: transparent;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -811,8 +890,38 @@ footer {
 }
 
 @media only screen and (max-width: 500px){
-    .rating{
+    .about{
+        flex-direction: column;
         height: 250vh;
+        align-items: center;
+        .col1 img{
+            width: 150px;
+        }
+    }
+    .solutions{
+        height: 170vh;
+        padding-top: 20%;
+    }
+    .solutions .container-solucao{
+        align-items: center;
+        width: 95vw;
+        height: 150vh;
+        gap: 30px;
+        justify-content: space-evenly;
+        .lin{
+            flex-direction: column;
+            width: 100%;
+            gap: 30px;
+            .card{
+                width: 90%;
+            }
+        }
+    }
+    .services{
+        height: 300vh;
+    }
+    .rating{
+        height: 300vh;
     }
 
     .team{
@@ -864,7 +973,10 @@ footer {
     .about {
         padding: 10px;
     }
-
+    header{
+        width: 95%;
+        background-color: transparent;
+    }
 }
 
 /* Menu NavBar */
@@ -897,10 +1009,10 @@ footer {
 @media only screen and (max-width: 1600px){
     .about{
         flex-direction: column;
-        height: 130vh;
+        height: 100vh;
         align-items: center;
         .col1 img{
-            width: 500px;
+            width: 800px;
         }
     }
 }
@@ -914,6 +1026,14 @@ footer {
 
         h2{
             font-size: 22px;
+        }
+    }
+    .about{
+        flex-direction: column;
+        height: 230vh;
+        align-items: center;
+        .col1 img{
+            width: 300px;
         }
     }
 }
