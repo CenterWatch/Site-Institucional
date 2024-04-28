@@ -54,9 +54,9 @@ CREATE TABLE funcionario (
     dt_nasc DATE,
     cpf CHAR(14) NOT NULL,
     cargo VARCHAR(45),
-    fk_supervisor INT,
+    fk_gerente INT,
     fk_empresa INT,
-    CONSTRAINT fk_supervisor_funcionario FOREIGN KEY (fk_supervisor) REFERENCES funcionario(id_funcionario),
+    CONSTRAINT fk_gerente_funcionario FOREIGN KEY (fk_gerente) REFERENCES funcionario(id_funcionario),
     CONSTRAINT fk_empresa_funcionario FOREIGN KEY (fk_empresa) REFERENCES empresa(id_empresa)
 );
 
@@ -76,9 +76,9 @@ CREATE TABLE tarefa (
     concluida TINYINT DEFAULT 0,
     dt_concluida DATE DEFAULT (CURRENT_DATE),
     fk_funcionario INT NOT NULL,
-    fk_supervisor INT NOT NULL,
+    fk_gerente INT NOT NULL,
     CONSTRAINT fk_funcionario_tarefa FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario),
-    CONSTRAINT fk_supervisor_tarefa FOREIGN KEY (fk_supervisor) REFERENCES funcionario(id_funcionario)
+    CONSTRAINT fk_gerente_tarefa FOREIGN KEY (fk_gerente) REFERENCES funcionario(id_funcionario)
 );
 
 CREATE TABLE usuario (
@@ -207,24 +207,24 @@ VALUES (1002, 75.0, 65.0, 85.0, 25, 25000, 2000, 35000);
 INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa)
 VALUES ('Alice', 'Silva', '11987654321', '1123456789', 'alice@techsolutions.com', '1980-05-15', '123.456.789-10', 'Diretor', 1000);
     
-INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_supervisor)
-VALUES ('Carlos', 'Santos', '11976543210', '1122334455', 'carlos@techsolutions.com', '1985-10-20', '987.654.321-01', 'Supervisor', 1000, 1);
+INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_gerente)
+VALUES ('Carlos', 'Santos', '11976543210', '1122334455', 'carlos@techsolutions.com', '1985-10-20', '987.654.321-01', 'gerente', 1000, 1);
     
-INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_supervisor)
+INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_gerente)
 VALUES ('Lucas', 'Oliveira', '11965432109', '1199887766', 'lucas@techsolutions.com', '1990-07-12', '456.789.123-02', 'Operador', 1000, 2);
     
 -- Empresa 2
 INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa)
 VALUES ('Ana', 'Rodrigues', '21876543210', '2133445566', 'ana@globaltech.com', '1975-03-25', '789.456.123-45', 'Diretor', 1001);
     
-INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_supervisor)
+INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_gerente)
 VALUES ('Pedro', 'Ferreira', '21887654321', '2133556677', 'pedro@globaltech.com', '1992-12-08', '654.321.987-78', 'Suporte', 1001, 4);
     
 -- Empresa 3
 INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa)
 VALUES ('Mariana', 'Souza', '11998765432', '1122667788', 'mariana@filialcentro.com', '1993-08-20', '987.654.321-98', 'Suporte', 1002);
     
-INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_supervisor)
+INSERT INTO funcionario (primeiro_nome, sobrenome, celular, telefone, email, dt_nasc, cpf, cargo, fk_empresa, fk_gerente)
 VALUES ('Rafael', 'Lima', '11987654321', '1122334455', 'rafael@filialcentro.com', '1995-04-18', '123.456.789-45', 'Operador', 1002, 6);
 
 -- USUÁRIOS
