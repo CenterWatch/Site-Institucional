@@ -19,8 +19,8 @@ CREATE TABLE empresa (
     nome_fantasia VARCHAR(45) NOT NULL,
     razao_social VARCHAR(45) NOT NULL,
     cnpj CHAR(14) NOT NULL,
-    fk_filial INT,
-    CONSTRAINT fk_filial_empresa FOREIGN KEY (fk_filial) REFERENCES empresa(id_empresa),
+    fk_matriz INT,
+    CONSTRAINT fk_matriz_empresa FOREIGN KEY (fk_matriz) REFERENCES empresa(id_empresa),
     fk_endereco INT,
     CONSTRAINT fk_endereco_empresa FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco)
 ) AUTO_INCREMENT = 1000;
@@ -83,7 +83,7 @@ CREATE TABLE tarefa (
 
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY,
-    username VARCHAR(80),
+    usuario VARCHAR(80),
     senha VARCHAR(80) CHECK (LENGTH(senha) >= 8),
     dt_criado DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_funcionario_usuario FOREIGN KEY (id_usuario) REFERENCES funcionario(id_funcionario)
@@ -103,6 +103,7 @@ CREATE TABLE artigo (
     descricao VARCHAR(2000),
     categoria VARCHAR(45),
     palavra_chave VARCHAR(45),
+    data_de_criacao DATE DEFAULT (current_date),
     fk_funcionario INT,
     CONSTRAINT fk_funcionario_artigo FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
 );
@@ -228,25 +229,25 @@ VALUES ('Rafael', 'Lima', '11987654321', '1122334455', 'rafael@filialcentro.com'
 
 -- USUÁRIOS
 -- Empresa 1
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (1, 'alice@techsolutions.com', 'alice123');
     
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (2, 'carlos@techsolutions.com', 'carlos456');
     
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (3, 'lucas@techsolutions.com', 'lucas789');
 
 -- Empresa 2
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (4, 'ana@globaltech.com', 'ana12987');
     
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (5, 'pedro@globaltech.com', 'pedro654');
 
 -- Empresa 3
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (6, 'mariana@filialcentro.com', 'mariana321');
     
-INSERT INTO usuario (id_usuario, username, senha)
+INSERT INTO usuario (id_usuario, usuario, senha)
 VALUES (7, 'rafael@filialcentro.com', 'rafael123');
