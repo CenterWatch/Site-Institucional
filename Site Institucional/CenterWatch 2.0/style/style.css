@@ -346,10 +346,18 @@ header .links:nth-child(2) a:nth-child(5) {
 
         .card-e {
             background: linear-gradient(to right, #4f32cf, #3d24ad);
+            .fa-solid{
+                color: #fff;
+                font-size: 4rem;
+            }
         }
 
         .card-d {
             background: linear-gradient(to left, #4f32cf, #3d24ad);
+            .fa-solid{
+                color: #fff;
+                font-size: 4rem;
+            }
         }
     }
 }
