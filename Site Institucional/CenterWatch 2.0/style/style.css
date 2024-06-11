@@ -835,6 +835,9 @@ footer {
             text-align: center;
             font-family: "Josefin Sans", sans-serif;
         }
+        .texto a{
+            color: #b6b6b6;
+        }
     }
 
 
